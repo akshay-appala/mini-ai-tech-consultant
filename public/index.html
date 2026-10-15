@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini AI Tech Consultant</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <div>
+                <p class="eyebrow">GEMINI API DEMO</p>
+                <h1>Mini AI Tech Consultant</h1>
+                <p class="subtitle">
+                    A small prototype for support knowledge, email drafts, and meeting notes.
+                </p>
+            </div>
+            <div id="connection-status" class="status-pill" role="status">
+                Checking setup…
+            </div>
+        </header>
+
+        <nav class="tabs" aria-label="Demo features">
+            <button class="tab-button active" data-tab="knowledge" type="button">
+                Knowledge Brain
+            </button>
+            <button class="tab-button" data-tab="inbox" type="button">
+                Inbox Agent
+            </button>
+            <button class="tab-button" data-tab="scope" type="button">
+                Meeting-to-Scope
+            </button>
+        </nav>
+
+        <main>
+            <section class="panel active" id="knowledge-panel">
+                <div class="panel-heading">
+                    <p class="eyebrow">FEATURE 01</p>
+                    <h2>Ask about supplied knowledge</h2>
+                    <p>Paste a short help article and ask a question. Gemini should base its answer on the text you provide.</p>
+                </div>
+
+                <form id="knowledge-form" class="form-card">
+                    <label for="knowledge-text">Knowledge text</label>
+                    <textarea id="knowledge-text" rows="7" required>Customers can reset their password by opening the sign-in page and selecting "Forgot password". A reset link is sent to their registered email address. The link expires after 30 minutes. If the email does not arrive, customers should check their spam folder or contact support.</textarea>
+
+                    <label for="knowledge-question">Your question</label>
+                    <input id="knowledge-question" type="text" value="How long does the password reset link last?" required>
+
+                    <button class="primary-button" type="submit">Ask Gemini</button>
+                </form>
+
+                <div class="result-card">
+                    <h3>Answer</h3>
+                    <div id="knowledge-result" class="result-content muted">Your answer will appear here.</div>
+                </div>
+            </section>
+
+            <section class="panel" id="inbox-panel">
+                <div class="panel-heading">
+                    <p class="eyebrow">FEATURE 02</p>
+                    <h2>Draft a customer email reply</h2>
+                    <p>Give Gemini the customer's message and any known support context. Review the draft before using it.</p>
+                </div>
+
+                <form id="inbox-form" class="form-card">
+                    <label for="customer-email">Customer email</label>
+                    <textarea id="customer-email" rows="5" required>Hi, I requested a password reset but the email has not arrived. Can you help me get back into my account?</textarea>
+
+                    <label for="support-context">Support context (optional)</label>
+                    <textarea id="support-context" rows="4">Password reset emails are sent to the registered email address. Customers should check their spam folder. If they still cannot find the email, support can help verify the account.</textarea>
+
+                    <button class="primary-button" type="submit">Draft Reply</button>
+                </form>
+
+                <div class="result-card">
+                    <div class="result-heading">
+                        <h3>Suggested reply</h3>
+                        <span class="review-label">Human review required</span>
+                    </div>
+                    <div id="inbox-result" class="result-content muted">Your draft will appear here.</div>
+                    <button id="copy-reply" class="secondary-button" type="button" disabled>Copy draft</button>
+                </div>
+            </section>
+
+            <section class="panel" id="scope-panel">
+                <div class="panel-heading">
+                    <p class="eyebrow">FEATURE 03</p>
+                    <h2>Turn meeting notes into a first draft</h2>
+                    <p>Gemini will organize the notes into requirements, possible tasks, rough estimates, and open questions.</p>
+                </div>
+
+                <form id="scope-form" class="form-card">
+                    <label for="meeting-notes">Meeting notes</label>
+                    <textarea id="meeting-notes" rows="8" required>The client wants a small booking website for a local fitness studio. Visitors should be able to view classes, choose a time, and submit a booking request. Staff need a simple page to see booking requests. The site should work on mobile. The client has not decided whether online payments are needed. They hope to launch next month.</textarea>
+
+                    <button class="primary-button" type="submit">Extract Requirements</button>
+                </form>
+
+                <div class="result-card">
+                    <h3>Scope draft</h3>
+                    <div id="scope-result" class="result-content muted">Your structured scope will appear here.</div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>Prototype only. AI output can be wrong; verify answers, email drafts, and estimates before using them.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "mini-ai-tech-consultant",
+  "version": "1.0.0",
+  "description": "A beginner-friendly Gemini API prototype for knowledge answers, email drafts, and meeting requirements.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
